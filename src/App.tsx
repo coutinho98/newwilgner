@@ -1,10 +1,12 @@
 import { Hero } from './components/Hero'
+import { ProblemAnimated } from './components/Problem'
 
 function App() {
   return (
-      <main>
-        <Hero />
-      </main>
+    <main>
+      <Hero />
+      <ProblemAnimated />
+    </main>
   )
 }
 

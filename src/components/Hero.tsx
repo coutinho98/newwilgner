@@ -4,7 +4,7 @@ export function Hero() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <section id="home" className="relative overflow-hidden bg-black lg:h-screen min-h-screen flex items-center">
+        <section id="home" className="font-[inter] relative overflow-hidden bg-black lg:h-screen min-h-screen flex items-center">
             <nav className="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-xl border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-20 items-center">
@@ -17,7 +17,7 @@ export function Hero() {
                         <div className="hidden md:flex items-center space-x-6">
                             <a href="#home" className="text-gray-300 hover:text-amber-400 transition-colors font-medium text-sm">Home</a>
                             <a href="#conteudo" className="text-gray-300 hover:text-amber-400 transition-colors font-medium text-sm">Conteúdo</a>
-                            <button className="bg-amber-500 text-black px-5 py-2 rounded-full font-bold hover:bg-amber-400 transition-all text-sm">
+                            <button className="bg-amber-500 text-black px-5 py-2 rounded-full font-bold">
                                 Começar Agora
                             </button>
                         </div>
@@ -54,7 +54,7 @@ export function Hero() {
                             </p>
 
                             <div className="flex flex-row flex-wrap gap-3 items-center w-full">
-                                <button className="bg-amber-500 text-black px-5 py-3 rounded-lg text-xs lg:text-sm font-black uppercase tracking-tight hover:bg-amber-400 transition-all transform hover:scale-[1.02] shadow-lg shadow-amber-900/20 whitespace-nowrap">
+                                <button className="bg-amber-500 text-black px-5 py-3 rounded-lg text-xs lg:text-sm font-black uppercase tracking-tight ">
                                     Quero me tornar uma máquina
                                 </button>
                                 <button className="bg-transparent text-white border border-white/20 px-5 py-3 rounded-lg text-xs lg:text-sm font-bold hover:bg-white/5 transition-all whitespace-nowrap">
