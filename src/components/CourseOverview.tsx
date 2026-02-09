@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, Swords, Target, Lock, Repeat, Play } from 'lucide-react';
+import { Shield, Swords, Target, Lock, Repeat } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Basic from '../assets/img/basic.webp';
 import Entradas from '../assets/img/entradas.webp';
