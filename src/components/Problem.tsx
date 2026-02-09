@@ -1,61 +1,102 @@
-import { motion } from 'framer-motion';
-import { AlertCircle } from 'lucide-react';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import {
+    Target,
+    Zap,
+    Settings2,
+    Flame,
+    ShieldCheck,
+    Trophy
+} from "lucide-react";
+
+const items = [
+    {
+        title: "Dominar a luta",
+        text: "Domine a luta desde o primeiro contato com técnica superior.",
+        icon: <Target className="w-5 h-5 text-white" />
+    },
+    {
+        title: "Confiança total",
+        text: "Derrube qualquer adversário com confiança e precisão técnica.",
+        icon: <Zap className="w-5 h-5 text-white" />
+    },
+    {
+        title: "Controle absoluto",
+        text: "Controle onde a luta acontece – seja em pé ou no chão.",
+        icon: <Settings2 className="w-5 h-5 text-white" />
+    },
+    {
+        title: "Imposição de ritmo",
+        text: "Imponha seu ritmo e sua estratégia desde o primeiro segundo.",
+        icon: <Flame className="w-5 h-5 text-white" />
+    },
+    {
+        title: "Respeito no tatame",
+        text: "Ganhe respeito de todos na academia pelo seu nível de wrestling.",
+        icon: <ShieldCheck className="w-5 h-5 text-white" />
+    },
+    {
+        title: "Vantagem real",
+        text: "Compita com vantagem real sobre 90% dos seus adversários.",
+        icon: <Trophy className="w-5 h-5 text-white" />
+    }
+];
 
 export function ProblemAnimated() {
-    const frustrations = [
-        "Cansado de depender só de puxar pra guarda e nunca impor seu jogo?",
-        "Sempre por baixo, sendo dominado pelos adversários mais experientes?",
-        "Frustrado por não conseguir derrubar ninguém, mesmo treinando há meses?",
-        "Envergonhado quando você simplesmente não consegue tirar o cara do pé?",
-        "Perdendo lutas que poderia ganhar se soubesse controlar a luta em pé?"
-    ];
+    const sectionRef = useRef(null);
+
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start 0.8", "start 0.3"]
+    });
+
+    const opacity = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
 
     return (
-        <section className="bg-black py-24 relative overflow-hidden">
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1]
-                }}
-                transition={{ duration: 8, repeat: Infinity }}
-                className="absolute top-0 -left-20 w-96 h-96 bg-amber-500/20 blur-[120px] rounded-full"
-            />
+        <section
+            ref={sectionRef}
+            id="conteudo"
+            className="py-32 bg-black relative"
+        >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-            <div className="max-w-4xl mx-auto px-4 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl lg:text-6xl font-black text-white uppercase tracking-tighter mb-4">
-                        O tatame não <span className="text-amber-500">perdoa erros</span>
-                    </h2>
-                    <p className="text-gray-500 font-bold tracking-[0.2em] uppercase text-sm">Identifique-se com algum desses problemas?</p>
-                </motion.div>
+                <div className="mb-24">
+                    <motion.h2
+                        style={{ opacity }}
+                        className="font-inter text-4xl md:text-5xl lg:text-6xl text-white mb-8 max-w-5xl font-bold tracking-tight leading-tight"
+                    >
+                        O <span className="bg-gradient-to-br from-amber-200 via-amber-400 to-yellow-600 bg-clip-text text-transparent">único método</span> no Brasil que transforma lutadores de Jiu-Jitsu em máquinas de derrubar.
+                    </motion.h2>
 
-                <div className="grid gap-4">
-                    {frustrations.map((text, i) => (
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        className="text-[#9c9c9c] text-sm font-bold uppercase tracking-[0.2em]"
+                    >
+                        Aqui você vai aprender
+                    </motion.p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                    {items.map((item, index) => (
                         <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            whileHover={{ scale: 1.02, x: 10 }}
-                            className="relative group cursor-default"
+                            key={index}
+                            initial={{ opacity: 0, y: 15 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="flex items-start gap-4" 
                         >
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-2xl opacity-0 group-hover:opacity-20 blur transition duration-500" />
+                            <div className="flex-shrink-0 pt-1 text-white">
+                                {item.icon}
+                            </div>
 
-                            <div className="relative bg-zinc-900/40 backdrop-blur-md border border-white/5 p-6 rounded-2xl flex items-center gap-6">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-amber-500/50 transition-colors">
-                                    <AlertCircle className="w-6 h-6 text-amber-500 group-hover:animate-pulse" />
-                                </div>
-
-                                <p className="text-lg lg:text-xl text-gray-400 group-hover:text-white transition-colors font-medium">
-                                    {text}
+                            <div className="flex flex-col items-start text-left">
+                                <h3 className="text-white font-semibold text-lg tracking-tight mb-2">
+                                    {item.title}
+                                </h3>
+                                <p className="text-[#9c9c9c] text-sm leading-relaxed max-w-xs">
+                                    {item.text}
                                 </p>
-
-                                <div className="absolute bottom-0 left-0 h-[2px] bg-amber-500 w-0 group-hover:w-full transition-all duration-500" />
                             </div>
                         </motion.div>
                     ))}
