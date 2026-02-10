@@ -7,7 +7,6 @@ import Cinturadas from '../assets/img/cinturadas.webp';
 import Defesas from '../assets/img/defesas.webp';
 import Drills from '../assets/img/drills.webp';
 
-
 export function CourseOverview() {
     const [activeTab, setActiveTab] = useState(0);
 
@@ -45,47 +44,58 @@ export function CourseOverview() {
     ];
 
     return (
-
-
         <div className="min-h-screen w-full bg-black relative">
-            <div
-                className="absolute inset-0 z-0"
-                style={{
-                    background:
-                        "repeating-linear-gradient(45deg, #000 0px, #050505 2px, #000 4px, #0a0a0a 6px)",
-                }}
-            />
+            <div className="absolute inset-0 z-0" style={{ background: "repeating-linear-gradient(45deg, #000 0px, #050505 2px, #000 4px, #0a0a0a 6px)" }} />
+            <div className="absolute inset-0 z-10 pointer-events-none" style={{ background: "rgba(0, 0, 0, 0.6)", backdropFilter: "blur(45px) grayscale(20%)" }} />
 
-            <div
-                className="absolute inset-0 z-10 pointer-events-none"
-                style={{
-                    background: "rgba(0, 0, 0, 0.6)",
-                    backdropFilter: "blur(45px) grayscale(20%)",
-                    WebkitBackdropFilter: "blur(45px) grayscale(20%)",
-                }}
-            />
-
-            <section className="relative z-10 w-full max-w-7xl mx-auto px-6 py-24">
-                <div className="max-w-3xl mb-16">
-                    <h2 className="font-inter text-[#9c9c9c] text-sm font-bold uppercase tracking-[0.2em] mb-4">
+            <section className="relative z-10 w-full max-w-7xl mx-auto px-6 py-12 md:py-24">
+                <div className="max-w-3xl mb-12 md:mb-16">
+                    <h2 className="font-inter text-[#9c9c9c] text-xs md:text-sm font-bold uppercase tracking-[0.2em] mb-4">
                         Conteúdo do Curso
                     </h2>
-                    <h3 className="font-inter text-4xl md:text-6xl text-white font-bold tracking-tight leading-tight">
+                    <h3 className="font-inter text-3xl md:text-6xl text-white font-bold tracking-tight leading-tight">
                         O mapa para a <span className="bg-gradient-to-br from-amber-200 via-amber-400 to-yellow-600 bg-clip-text text-transparent">dominação</span> em pé
                     </h3>
-                    <p className="font-inter text-zinc-400 mt-6 text-lg leading-relaxed">
+                    <p className="font-inter text-zinc-400 mt-6 text-base md:text-lg leading-relaxed">
                         Uma estrutura completa dividida em módulos estratégicos, desenhados para levar você do zero à maestria nas quedas, independente do seu nível atual.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-start">
-                    <div className="flex flex-col space-y-4">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
+
+                    <div className="order-1 lg:order-2 relative lg:sticky lg:top-32 w-full flex justify-center lg:block">
+                        <div className="
+                                    relative overflow-hidden
+                                    /* Mobile: Tamanho fixo menor e centralizado */
+                                    w-[280px] h-[210px] 
+                                    /* Desktop: Proporção quadrada original */
+                                    lg:w-full lg:aspect-square lg:h-auto
+                                    flex items-center justify-center
+                                ">
+                            {modules.map((mod, index) => (
+                                <motion.img
+                                    key={index}
+                                    src={mod.image}
+                                    alt={mod.title}
+                                    initial={{ opacity: 0 }}
+                                    animate={{
+                                        opacity: activeTab === index ? 1 : 0,
+                                        scale: activeTab === index ? 1 : 1.05
+                                    }}
+                                    transition={{ duration: 0.4 }}
+                                    className="absolute inset-0 w-full h-full object-contain"
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="order-2 lg:order-1 flex flex-col space-y-3 md:space-y-4">
                         {modules.map((mod, index) => (
                             <div
                                 key={index}
                                 onClick={() => setActiveTab(index)}
-                                className={`group cursor-pointer p-6 rounded-xl border transition-all duration-500 ${activeTab === index
-                                    ? "bg-zinc-900/80  shadow-[0_0_30px_rgba(245,158,11,0.05)]"
+                                className={`group cursor-pointer p-5 md:p-6 rounded-xl border transition-all duration-500 ${activeTab === index
+                                    ? "bg-zinc-900/80 border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.05)]"
                                     : "bg-transparent border-white/5 hover:bg-white/5"
                                     }`}
                             >
@@ -93,7 +103,7 @@ export function CourseOverview() {
                                     <span className={`transition-colors duration-500 ${activeTab === index ? "text-amber-500" : "text-zinc-500"}`}>
                                         {mod.icon}
                                     </span>
-                                    <h4 className={`font-inter text-lg font-bold uppercase tracking-tight transition-colors ${activeTab === index ? "text-white" : "text-zinc-500"}`}>
+                                    <h4 className={`font-inter text-sm md:text-lg font-bold uppercase tracking-tight transition-colors ${activeTab === index ? "text-white" : "text-zinc-500"}`}>
                                         {mod.title}
                                     </h4>
                                 </div>
@@ -106,7 +116,7 @@ export function CourseOverview() {
                                             exit={{ height: 0, opacity: 0 }}
                                             className="overflow-hidden"
                                         >
-                                            <p className="font-inter text-zinc-400 text-sm leading-relaxed mt-4 pt-4 border-t border-white/5">
+                                            <p className="font-inter text-zinc-400 text-xs md:text-sm leading-relaxed mt-4 pt-4 border-t border-white/5">
                                                 {mod.desc}
                                             </p>
                                         </motion.div>
@@ -115,28 +125,8 @@ export function CourseOverview() {
                             </div>
                         ))}
                     </div>
-
-                    <div className="relative lg:sticky lg:top-32 group">
-                        <div className="relative aspect-video lg:aspect-square w-full overflow-hidden ">
-                            {modules.map((mod, index) => (
-                                <motion.img
-                                    key={index}
-                                    src={mod.image}
-                                    alt={mod.title}
-                                    initial={{ opacity: 0, scale: 1.1 }}
-                                    animate={{
-                                        opacity: activeTab === index ? 1 : 0,
-                                        scale: activeTab === index ? 1 : 1.1
-                                    }}
-                                    transition={{ duration: 0.6 }}
-                                    className="absolute inset-0 w-full h-full object-cover "
-                                />
-                            ))}
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>
-
     );
-};
+}
