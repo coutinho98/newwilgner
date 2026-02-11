@@ -42,14 +42,14 @@ export function Hero() {
                 </p>
 
                 <div className="font-inter flex flex-col sm:flex-row gap-4 items-center justify-center mb-30">
-                    <button className="group relative cursor-pointer bg-white text-black px-4 py-4 rounded-full font-black uppercase text-xs w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/90 ">
+                    <button className="group relative cursor-pointer bg-white text-black px-4 py-4 rounded-full font-bold text-xs w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/90 ">
                         <span className="relative z-10">Dominar Agora</span>
-                        <MoveUpRight className="relative z-10 w-4 h-4" />
+                        <MoveUpRight className="relative z-10 w-3 h-3" />
                     </button>
 
-                    <button className="group relative cursor-pointer bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-4 rounded-full font-bold uppercase text-xs transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2">
+                    <button className="group relative cursor-pointer bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-4 rounded-full font-bold  text-xs transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2">
                         <span>Conhecer Conteúdo</span>
-                        <MoveRight className="w-4 h-4 transition-transform duration-300 text-gray-400 group-hover:text-white" />
+                        <MoveRight className="w-3 h-3 transition-transform duration-300 text-gray-400 group-hover:text-white" />
                     </button>
                 </div>
             </motion.div>

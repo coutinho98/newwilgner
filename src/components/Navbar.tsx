@@ -8,9 +8,9 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-600 bg-clip-text text-transparent">
-              W
-            </span>
+             <h4 className="text-white font-bold tracking-tighter text-xl mb-4 uppercase">
+                            WILGNER <span className="text-amber-500">silva</span>
+                        </h4>
           </div>
 
           <div className="hidden md:flex items-center space-x-6">

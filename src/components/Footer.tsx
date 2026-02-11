@@ -10,7 +10,7 @@ export function Footer() {
 
                     <div className="md:col-span-2">
                         <h4 className="text-white font-bold tracking-tighter text-xl mb-4 uppercase">
-                            Wrestling <span className="text-amber-500">Pro</span>
+                            WILGNER <span className="text-amber-500">silva</span>
                         </h4>
                         <p className="text-zinc-500 text-sm leading-relaxed max-w-sm">
                             Metodologia definitiva para dominar o combate em pé e elevar o seu nível no Jiu-Jitsu.
