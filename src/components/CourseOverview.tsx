@@ -13,7 +13,7 @@ export function CourseOverview() {
     const modules = [
         {
             title: "MOVIMENTOS BÁSICOS",
-            desc: "Este módulo te ensina as quedas mais eficazes do wrestling moderno com uma metodologia única: cada técnica é quebrada em seus componentes essenciais para garantir execução perfeita. Você dominará as duas quedas que resolvem 80% das situações - Single Leg e Double Leg - além de suas variações mais letais e as defesas que te tornarão impossível de derrubar.",
+            desc: "Este módulo te ensina as quedas mais eficazes do wrestling moderno com uma metodologia única: cada técnica é quebrada em seus componentes essenciais para garantir execução perfeita. Você dominará as duas quedas que resolvem 80% das situações - Single Leg e Double Leg.",
             icon: <Target size={24} />,
             image: Basic
         },

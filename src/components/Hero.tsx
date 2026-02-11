@@ -38,7 +38,7 @@ export function Hero() {
                 </h1>
 
                 <p className="text-base lg:text-lg text-gray-300 mb-10 leading-relaxed max-w-2xl font-medium">
-                    Descubra como dominar as quedas e finalmente impor seu jogo de jiu-jitsu com o Campeão Brasileiro de Wrestling de 2018.
+                    Descubra como dominar as quedas e finalmente impor seu jogo de jiu-jitsu com o Campeão Brasileiro de Wrestling.
                 </p>
 
                 <div className="font-inter flex flex-col sm:flex-row gap-4 items-center justify-center mb-30">
