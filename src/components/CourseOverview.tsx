@@ -19,7 +19,7 @@ export function CourseOverview() {
         },
         {
             title: "ENTRADAS QUE TODO GRAPPLER DEVE SABER",
-            desc: "Dominar quedas sem saber criar oportunidades é inútil. Este módulo ensina os setups e entradas que transformam qualquer situação defensiva em chance de queda garantida. Você aprenderá a 'enxergar' aberturas onde outros só veem guardas fechadas.",
+            desc: "Dominar quedas sem saber criar oportunidades é inútil. Este módulo ensina os setups e entradas que transformam qualquer situação defensiva em chance de queda garantida.",
             icon: <Swords size={24} />,
             image: Entradas
         },
