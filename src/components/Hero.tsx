@@ -10,15 +10,13 @@ export function Hero() {
         offset: ["start start", "end start"]
     });
 
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.3]);
-    const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
     const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
     return (
         <section
             ref={containerRef}
             id="home"
-            className="font-inter relative bg-black min-h-[150vh] flex flex-col items-center overflow-x-hidden no-scrollbar"
+            className="font-inter relative bg-black min-h-screen pb-20 flex flex-col items-center overflow-x-hidden no-scrollbar"
         >
             <div
                 className="fixed inset-0 z-0 pointer-events-none"
@@ -54,9 +52,8 @@ export function Hero() {
                 </div>
             </motion.div>
 
-            <div className="sticky top-1/4 w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
-                <motion.div
-                    style={{ scale, y }}
+            <div className="relative w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
+                <div
                     className="relative group w-full mx-auto shadow-2xl"
                 >
                     <div className="absolute opacity-20 group-hover:opacity-40 transition duration-1000"></div>
@@ -75,7 +72,7 @@ export function Hero() {
                             <source src="/videos/Portugues.mp4" type="video/mp4" />
                         </video>
                     </div>
-                </motion.div>
+                </div>
             </div>
 
         </section>
