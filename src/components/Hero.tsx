@@ -31,23 +31,25 @@ export function Hero() {
                 style={{ opacity }}
                 className="relative z-10 w-full pt-32 pb-10 flex flex-col items-center text-center px-4"
             >
-                <h1 className="text-4xl md:text-6xl lg:text-7xl text-white tracking-tighter mb-8 leading-[1.0] max-w-5xl">
-                    Pare de ser a <span className="bg-gradient-to-br from-amber-200 via-amber-400 to-yellow-600 bg-clip-text text-transparent">presa fácil</span> quando a luta começa em pé.
+                <h1 className="text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter mb-8 leading-[0.9] max-w-5xl  ">
+                    <span className="bg-gradient-to-br from-amber-200 via-amber-400 to-yellow-600 bg-clip-text text-transparent">
+                        Torne-se
+                    </span> o lutador que sempre coloca para baixo.
                 </h1>
 
-                <p className="text-base lg:text-lg text-gray-300 mb-10 leading-relaxed max-w-3xl font-medium">
-                    O sistema passo-a-passo do Nº 1 do Brasil para você derrubar qualquer faixa-preta da sua academia, começar toda luta ganhando por 2 a 0 e destruir o psicológico do seu oponente antes mesmo de ir pro chão.
+                <p className="text-base lg:text-lg text-gray-300 mb-10 leading-relaxed max-w-2xl font-medium">
+                    Descubra como dominar as quedas e finalmente impor seu jogo de jiu-jitsu com o Campeão Brasileiro de Wrestling.
                 </p>
 
                 <div className="font-inter flex flex-col sm:flex-row gap-4 items-center justify-center mb-30">
-                    <button className="group relative cursor-pointer bg-amber-500 text-black px-6 py-4 rounded-full font-bold text-sm w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:bg-amber-400 hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]">
-                        <span className="relative z-10">Quero derrubar meus oponentes</span>
-                        <MoveUpRight className="relative z-10 w-4 h-4" />
+                    <button className="group relative cursor-pointer bg-white text-black px-4 py-4 rounded-full font-bold text-xs w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/90 ">
+                        <span className="relative z-10">Dominar Agora</span>
+                        <MoveUpRight className="relative z-10 w-3 h-3" />
                     </button>
 
-                    <button className="group relative cursor-pointer bg-black/40 backdrop-blur-md text-white border border-white/10 px-6 py-4 rounded-full font-bold text-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2">
-                        <span>Como funciona o método?</span>
-                        <MoveRight className="w-4 h-4 transition-transform duration-300 text-gray-400 group-hover:text-white" />
+                    <button className="group relative cursor-pointer bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-4 rounded-full font-bold  text-xs transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2">
+                        <span>Conhecer Conteúdo</span>
+                        <MoveRight className="w-3 h-3 transition-transform duration-300 text-gray-400 group-hover:text-white" />
                     </button>
                 </div>
             </motion.div>
