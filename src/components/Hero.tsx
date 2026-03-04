@@ -62,14 +62,10 @@ export function Hero() {
                     <div className="absolute opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
                     <div
-                        className="relative bg-gray-900 rounded-xl border border-white/10 overflow-hidden"
-                        style={{
-                            WebkitMaskImage: 'radial-gradient(circle, black 70%, transparent 100%)',
-                            maskImage: 'radial-gradient(circle, black 70%, transparent 100%)',
-                        }}
+                        className="relative bg-gray-900 rounded-xl border border-white/10 overflow-hidden md:[mask-image:radial-gradient(circle,black_70%,transparent_100%)] md:[WebkitMaskImage:radial-gradient(circle,black_70%,transparent_100%)]"
                     >
                         <video
-                            className="w-full aspect-video object-cover"
+                            className="w-full h-auto aspect-video md:aspect-video object-cover"
                             controls
                             autoPlay
                             muted

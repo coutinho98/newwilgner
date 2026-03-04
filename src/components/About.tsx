@@ -34,21 +34,25 @@ export function About() {
         <section ref={containerRef} className="relative w-full bg-black font-inter text-white">
             <div className="flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto min-h-screen">
 
-                <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen sticky top-0 bg-zinc-950 overflow-hidden">
+                <div className="w-full lg:w-1/2 h-[70vh] lg:h-screen sticky top-0 bg-zinc-950 overflow-hidden">
                     <video
                         src={wilgnerVideo}
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover opacity-80"
+                        className="w-full h-full object-cover object-[center_20%] lg:object-center opacity-80"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 lg:hidden" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black hidden lg:block" />
+                    {/* Fades pesados para o celular para misturar a transição */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black via-black/80 to-transparent lg:hidden pointer-events-none" />
+                    <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent lg:hidden pointer-events-none" />
+
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black hidden lg:block pointer-events-none" />
                 </div>
 
-                <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 py-20 lg:py-40 lg:px-16 xl:px-24">
+                {/* Right Side: Scrollable Content */}
+                <div className="w-full lg:w-1/2 relative z-10 flex flex-col justify-center px-6 pt-16 pb-24 lg:py-40 lg:px-16 xl:px-24 bg-black lg:bg-transparent -mt-[10vh] lg:mt-0 rounded-t-[40px] lg:rounded-none shadow-[0_-30px_50px_rgba(0,0,0,0.8)] lg:shadow-none">
                     <div className="max-w-xl mx-auto lg:mx-0">
 
                         <div className="about-text-block mb-12">
