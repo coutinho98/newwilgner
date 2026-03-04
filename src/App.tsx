@@ -1,4 +1,3 @@
-import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { ProblemAnimated } from './components/Problem'
 import { CourseOverview } from './components/CourseOverview'
@@ -11,7 +10,6 @@ import { CourseCurriculum } from './components/CourseModules'
 function App() {
   return (
     <main>
-      <Navbar />
       <Hero />
       <ProblemAnimated />
       <About />
