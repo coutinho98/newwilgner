@@ -97,11 +97,11 @@ export function CourseOverview() {
                     </div>
                   </div>
 
-                  <div className="mt-5 block lg:hidden relative aspect-[16/9] rounded-xl overflow-hidden border border-amber-500/30 shadow-md">
+                  <div className={`mt-5 block lg:hidden relative rounded-xl overflow-hidden border border-zinc-200 shadow-md`}>
                     <img
                       src={mod.image}
                       alt={mod.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-auto block" 
                     />
                   </div>
 
@@ -116,21 +116,21 @@ export function CourseOverview() {
 
           <div className="hidden lg:block lg:col-span-7">
             <div className="sticky top-32">
-              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border-4 border-white bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-zinc-200">
+              <div className="relative rounded-[2.5rem] overflow-hidden border-4 border-white bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-zinc-200">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeTab}
                     src={modules[activeTab].image}
                     alt={modules[activeTab].title}
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-auto block" 
                   />
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
               </div>
 
               <div className="absolute -bottom-6 -right-6 text-[12rem] font-black text-zinc-100 -z-10 select-none">
