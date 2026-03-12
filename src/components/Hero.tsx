@@ -1,22 +1,17 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { MoveUpRight, MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { MoveUpRight } from "lucide-react";
 import { useRef } from "react";
+import bannerImg from "../assets/img/banner.jpeg"; 
 
 export function Hero() {
     const containerRef = useRef(null);
-
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end start"]
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
     return (
         <section
             ref={containerRef}
             id="home"
-            className="font-inter relative bg-black min-h-screen pb-20 flex flex-col items-center overflow-x-hidden no-scrollbar"
+            // Removido o min-h-screen e o pb-20 para encurtar a seção
+            className="font-inter relative bg-black flex flex-col items-center overflow-x-hidden no-scrollbar pb-10"
         >
             <div
                 className="fixed inset-0 z-0 pointer-events-none"
@@ -25,55 +20,47 @@ export function Hero() {
                 }}
             />
 
+            <div className="relative w-full max-w-xl px-6 z-20 mt-24">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="relative group w-full mx-auto shadow-2xl"
+                >
+                    <div className="relative bg-zinc-900 rounded-[2rem] border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                        <img 
+                            src={bannerImg} 
+                            alt="Banner Além do Jiu-Jitsu"
+                            className="w-full h-auto block object-contain" 
+                        />
+                    </div>
+                </motion.div>
+            </div>
+
             <motion.div
-                style={{ opacity }}
-                className="relative z-10 w-full pt-32 pb-10 flex flex-col items-center text-center px-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                // Reduzi o pb-10 para pb-2 para aproximar o botão do fim da seção
+                className="relative z-10 w-full pt-12 pb-2 flex flex-col items-center text-center px-4"
             >
-                <h1 className="text-5xl md:text-7xl lg:text-8xl text-white tracking-tighter mb-8 leading-[0.9] max-w-5xl  ">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl text-white tracking-tighter mb-6 leading-[1] max-w-4xl">
                     <span className="bg-gradient-to-br from-amber-200 via-amber-400 to-yellow-600 bg-clip-text text-transparent">
                         Torne-se
                     </span> o lutador que sempre coloca para baixo.
                 </h1>
 
-                <p className="text-base lg:text-lg text-gray-300 mb-10 leading-relaxed max-w-2xl font-medium">
+                <p className="text-sm md:text-base lg:text-lg text-gray-300 mb-10 leading-relaxed max-w-xl font-medium">
                     Descubra como dominar as quedas e finalmente impor seu jogo de jiu-jitsu com o Campeão Brasileiro de Wrestling.
                 </p>
 
-                <div className="font-inter flex flex-col sm:flex-row gap-4 items-center justify-center mb-30">
-                    <button className="group relative cursor-pointer bg-white text-black px-4 py-4 rounded-full font-bold text-xs w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 hover:bg-white/90 ">
-                        <span className="relative z-10">Dominar Agora</span>
-                        <MoveUpRight className="relative z-10 w-3 h-3" />
-                    </button>
-
-                    <button className="group relative cursor-pointer bg-black/40 backdrop-blur-md text-white border border-white/10 px-4 py-4 rounded-full font-bold  text-xs transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2">
-                        <span>Conhecer Conteúdo</span>
-                        <MoveRight className="w-3 h-3 transition-transform duration-300 text-gray-400 group-hover:text-white" />
+                <div className="flex items-center justify-center">
+                    <button className="group relative cursor-pointer bg-white text-black px-12 py-4 rounded-full font-extrabold text-xs flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:bg-zinc-100 active:scale-95 shadow-[0_10px_30px_rgba(255,255,255,0.1)]">
+                        <span className="relative z-10 uppercase tracking-[0.2em]">Dominar Agora</span>
+                        <MoveUpRight className="relative z-10 w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </button>
                 </div>
             </motion.div>
-
-            <div className="relative w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
-                <div
-                    className="relative group w-full mx-auto shadow-2xl"
-                >
-                    <div className="absolute opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-
-                    <div
-                        className="relative bg-gray-900 rounded-xl border border-white/10 overflow-hidden md:[mask-image:radial-gradient(circle,black_70%,transparent_100%)] md:[WebkitMaskImage:radial-gradient(circle,black_70%,transparent_100%)]"
-                    >
-                        <video
-                            className="w-full h-auto aspect-video md:aspect-video object-cover"
-                            controls
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                        >
-                            <source src="/videos/Portugues.mp4" type="video/mp4" />
-                        </video>
-                    </div>
-                </div>
-            </div>
 
         </section>
     );

@@ -3,7 +3,8 @@ import { useRef } from "react";
 import {
     XCircle,
     AlertCircle,
-    CheckCircle2
+    CheckCircle2,
+    Minus
 } from "lucide-react";
 
 export function ProblemAnimated() {
@@ -12,123 +13,149 @@ export function ProblemAnimated() {
     return (
         <section
             ref={sectionRef}
-            id="conteudo"
-            className="py-32 md:py-40 bg-black relative"
+            id="metodologia"
+            className="py-24 md:py-32 bg-white relative font-inter"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="pt-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                
+                {/* Header da Seção */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16 md:mb-24"
+                >
+                    <span className="text-amber-600 font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs block mb-4">
+                        Supere seus limites
+                    </span>
+                    <h2 className="text-4xl md:text-6xl text-zinc-900 font-black tracking-tighter max-w-4xl mx-auto leading-[1.1]">
+                        Sim, você <span className="text-amber-500 italic">PODE</span> dominar o Wrestling... <br className="hidden md:block" /> 
+                        mesmo começando <span className="relative inline-block">
+                            do zero.
+                            <span className="absolute bottom-1 left-0 w-full h-[6px] bg-amber-500/20 -z-10"></span>
+                        </span>
+                    </h2>
+                </motion.div>
 
-
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    {/* Card 01: Dúvidas */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center mb-16"
+                        className="group bg-white border border-zinc-100 rounded-[2rem] p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-zinc-200 transition-all duration-500"
                     >
-                        <h2 className="text-3xl md:text-5xl text-white font-bold tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
-                            Sim, você <span className="text-amber-500">PODE</span> dominar o Wrestling no BJJ... <br className="hidden md:block" /> mesmo começando <span className="text-white border-b-2 border-amber-500 pb-1">do zero.</span>
-                        </h2>
+                        <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                            <XCircle className="text-red-500 w-6 h-6" />
+                        </div>
+                        
+                        <h3 className="text-2xl text-zinc-900 font-bold tracking-tight mb-6">
+                            O que passa na sua cabeça
+                        </h3>
+                        
+                        <ul className="space-y-5 mb-10">
+                            {[
+                                "Já tentei aprender antes e falhei",
+                                "Minha academia não foca em quedas",
+                                "Tenho receio de sofrer lesões",
+                                "Será que isso funciona com kimono?",
+                                "O investimento vale a pena agora?"
+                            ].map((text, i) => (
+                                <li key={i} className="flex items-start gap-4 text-zinc-500 group/item">
+                                    <Minus className="text-red-400 w-4 h-4 mt-1.5 flex-shrink-0" />
+                                    <span className="text-base font-medium leading-snug group-hover/item:text-zinc-800 transition-colors">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className="mt-auto p-5 bg-zinc-50 rounded-2xl border border-zinc-100">
+                            <p className="text-sm text-zinc-600 font-medium">
+                                <span className="text-red-600 font-bold">Fique tranquilo.</span> Já treinei +3.000 alunos e todos sentiram o mesmo medo antes de começar.
+                            </p>
+                        </div>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        {/* Dúvidas */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 flex flex-col hover:bg-white/[0.04] transition-colors duration-300"
-                        >
-                            <h3 className="text-white font-semibold mb-6 flex items-center gap-3">
-                                <XCircle className="text-red-500 w-6 h-6" /> <span className="text-lg">O que passa na sua cabeça:</span>
-                            </h3>
-                            <ul className="space-y-4 flex-1">
-                                {[
-                                    "Eu já tentei aprender antes e não consegui",
-                                    "Minha academia não ensina quedas direito",
-                                    "Tenho medo de me machucar nas quedas",
-                                    "Será que funciona com o kimono?",
-                                    "Não sei se vai valer a pena o investimento"
-                                ].map((text, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm text-zinc-400">
-                                        <span className="text-red-500/50 mt-0.5">✕</span>
-                                        <span className="leading-relaxed">{text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mt-8 text-sm text-zinc-300 bg-white/5 p-5 rounded-xl border border-white/5">
-                                <span className="text-amber-500 font-bold block mb-1">Relaxa.</span> Eu já treinei mais de 3.000 alunos nos últimos 10 anos, e TODOS eles tiveram essas mesmas dúvidas.
-                            </div>
-                        </motion.div>
+                    {/* Card 02: Consequências */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="group bg-white border border-zinc-100 rounded-[2rem] p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-zinc-200 transition-all duration-500"
+                    >
+                        <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                            <AlertCircle className="text-orange-500 w-6 h-6" />
+                        </div>
+                        
+                        <h3 className="text-2xl text-zinc-900 font-bold tracking-tight mb-6">
+                            O preço de adiar
+                        </h3>
+                        
+                        <ul className="space-y-5 mb-10">
+                            {[
+                                "Entregar 2 pontos de graça pro rival",
+                                "Começar a luta sempre por baixo",
+                                "Limitar seu jogo a apenas 50%",
+                                "Ficar vulnerável contra passadores",
+                                "Perder medalhas por falta de ajuste"
+                            ].map((text, i) => (
+                                <li key={i} className="flex items-start gap-4 text-zinc-500 group/item">
+                                    <Minus className="text-orange-400 w-4 h-4 mt-1.5 flex-shrink-0" />
+                                    <span className="text-base font-medium leading-snug group-hover/item:text-zinc-800 transition-colors">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
 
-                        {/* Consequências */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 flex flex-col hover:bg-white/[0.04] transition-colors duration-300"
-                        >
-                            <h3 className="text-white font-semibold mb-6 flex items-center gap-3">
-                                <AlertCircle className="text-orange-500 w-6 h-6" /> <span className="text-lg">O preço de adiar:</span>
-                            </h3>
-                            <p className="text-sm text-zinc-400 mb-6 font-medium">Entrar no tatame sem dominar as quedas significa:</p>
-                            <ul className="space-y-4 flex-1">
-                                {[
-                                    "Entregar 2 pontos de graça pro adversário",
-                                    "Começar a luta sempre em desvantagem",
-                                    "Limitar seu jogo a apenas 50% do potencial",
-                                    "Ficar vulnerável contra lutadores completos",
-                                    "Perder medalhas que poderiam ser SUAS"
-                                ].map((text, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm text-zinc-400">
-                                        <span className="text-orange-500 mt-0.5">•</span>
-                                        <span className="leading-relaxed">{text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mt-8 text-sm text-zinc-300 bg-orange-500/10 p-5 rounded-xl border border-orange-500/20">
-                                <span className="text-orange-500 font-bold block mb-1">A verdade dolorosa:</span> Enquanto você adia, seus adversários evoluem. E a cada campeonato, a diferença técnica aumenta.
-                            </div>
-                        </motion.div>
+                        <div className="mt-auto p-5 bg-orange-50/50 rounded-2xl border border-orange-100">
+                            <p className="text-sm text-zinc-600 font-medium">
+                                <span className="text-orange-600 font-bold">A realidade:</span> Enquanto você adia, seus adversários estão estudando como te colocar para baixo.
+                            </p>
+                        </div>
+                    </motion.div>
 
-                        {/* Solução */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="bg-gradient-to-b from-amber-500/10 to-transparent border border-amber-500/20 rounded-2xl p-8 flex flex-col relative overflow-hidden"
-                        >
-                            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 blur-[60px] pointer-events-none"></div>
+                    {/* Card 03: Solução (Destaque) */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="group bg-zinc-900 border border-zinc-800 rounded-[2rem] p-8 md:p-10 shadow-2xl relative overflow-hidden transition-all duration-500"
+                    >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 blur-[50px] pointer-events-none"></div>
+                        
+                        <div className="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+                            <CheckCircle2 className="text-white w-6 h-6" />
+                        </div>
+                        
+                        <h3 className="text-2xl text-white font-bold tracking-tight mb-6">
+                            A solução definitiva
+                        </h3>
+                        
+                        <ul className="space-y-5 mb-10">
+                            {[
+                                "Aprenda de onde estiver, no seu ritmo",
+                                "Método validado por +3.000 alunos",
+                                "Módulos do absoluto zero ao avançado",
+                                "Técnicas 100% adaptadas ao BJJ",
+                                "Domine tanto com kimono quanto sem"
+                            ].map((text, i) => (
+                                <li key={i} className="flex items-start gap-4 text-zinc-400 group/item">
+                                    <CheckCircle2 className="text-amber-500 w-5 h-5 mt-1 flex-shrink-0" />
+                                    <span className="text-base font-medium leading-snug group-hover/item:text-white transition-colors">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
 
-                            <h3 className="text-white font-semibold mb-6 flex items-center gap-3 relative z-10">
-                                <CheckCircle2 className="text-amber-500 w-6 h-6" /> <span className="text-lg">A solução definitiva:</span>
-                            </h3>
-                            <p className="text-sm text-zinc-400 mb-6 italic relative z-10">"Mas eu não tenho tempo pra treinar Wrestling em outra academia..."</p>
+                        <div className="mt-auto p-5 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+                            <p className="text-sm text-zinc-300 font-medium">
+                                <span className="text-amber-500 font-bold">O Método:</span> Direto ao ponto, focado no que realmente funciona na hora da luta.
+                            </p>
+                        </div>
+                    </motion.div>
 
-                            <ul className="space-y-4 flex-1 relative z-10">
-                                {[
-                                    "Assista de qualquer lugar, no seu próprio ritmo",
-                                    "Metodologia testada e aprovada por 3.000+ alunos",
-                                    "Do básico ao avançado em módulos progressivos",
-                                    "Técnicas 100% adaptadas PARA O JIU-JITSU",
-                                    "Funciona com maestria tanto no Gi quanto No-Gi"
-                                ].map((text, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm text-zinc-300">
-                                        <CheckCircle2 className="text-amber-500 w-4 h-4 mt-0.5 flex-shrink-0" />
-                                        <span className="leading-relaxed">{text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <div className="mt-8 text-sm text-zinc-200 bg-amber-500/20 backdrop-blur-sm p-5 rounded-xl border border-amber-500/30 relative z-10">
-                                <span className="text-amber-500 font-bold block mb-1">Exato.</span> Por isso eu criei um método 100% online, direto ao ponto e sem enrolação.
-                            </div>
-                        </motion.div>
-                    </div>
                 </div>
-            </div >
-        </section >
+            </div>
+        </section>
     );
 }
